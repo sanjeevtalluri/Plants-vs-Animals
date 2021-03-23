@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class Missile : MonoBehaviour
 {
-  
-     [Range(0,5f)]
-     private float speed=1f;
+    [SerializeField]
+    private float speed=3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +15,6 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.left*Time.deltaTime*speed);
-    }
-    public void MovementSpeed(float speed)
-    {
-        this.speed=speed;
-
+        transform.Translate(Vector2.right*Time.deltaTime*speed);
     }
 }
