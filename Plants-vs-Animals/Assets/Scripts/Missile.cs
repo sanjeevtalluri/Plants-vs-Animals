@@ -9,12 +9,20 @@ public class Missile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right*Time.deltaTime*speed);
+    }
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.tag=="Attacker"){
+            AttackerHealth attackerHealth=other.GetComponent<AttackerHealth>();
+            if(attackerHealth!=null){
+                attackerHealth.DealDamage();
+                 Destroy(gameObject);
+            }          
+        }
     }
 }
