@@ -5,11 +5,15 @@ using UnityEngine;
 public class DefenderSpawnManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject cactusPefab;
+    private Defender defender;
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+    public void SetDefender(Defender defender)
+    {
+        this.defender=defender;
     }
 
     // Update is called once per frame
@@ -26,7 +30,7 @@ public class DefenderSpawnManager : MonoBehaviour
     }
     private void SpawnDefender(Vector2 clickedWorldPos)
     {
-        Instantiate(cactusPefab,clickedWorldPos,Quaternion.identity);
+        Instantiate(defender,clickedWorldPos,Quaternion.identity);
     }
     private Vector2 GetWorldPosition()
     {
