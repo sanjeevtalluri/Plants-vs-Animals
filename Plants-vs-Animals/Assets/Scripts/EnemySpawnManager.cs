@@ -26,8 +26,13 @@ public class EnemySpawnManager : MonoBehaviour
     }
     private IEnumerator IEnemySpawner(){
         while(spawn){
-            Instantiate(lizardPrefab,transform.position,Quaternion.identity);
+            SpawnEnemy();       
             yield return new WaitForSeconds(Random.Range(minSpawnTime,maxSpawnTime));
         }
+    }
+    private void SpawnEnemy()
+    {
+       GameObject obj= Instantiate(lizardPrefab,transform.position,Quaternion.identity) ;
+       obj.transform.SetParent(this.transform);
     }
 }
