@@ -37,4 +37,8 @@ public class StarManager : MonoBehaviour
         stars+=amount;
         UpdateStarText();
     }
+    public int GetStars()
+    {
+        return stars;
+    }
 }

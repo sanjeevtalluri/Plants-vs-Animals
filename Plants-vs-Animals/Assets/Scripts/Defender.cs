@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class Defender : MonoBehaviour
 {
+    private int defenderCost=50;
     private StarManager starManager;
     // Start is called before the first frame update
     void Start()
     {
        starManager=FindObjectOfType<StarManager>();
+    }
+     public int GetDefenderCost()
+    {
+        return defenderCost;
     }
 
     // Update is called once per frame
@@ -21,4 +26,5 @@ public class Defender : MonoBehaviour
     {
         starManager.RewardStars(amount);
     }
+   
 }
