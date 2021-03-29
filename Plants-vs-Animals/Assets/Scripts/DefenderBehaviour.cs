@@ -10,16 +10,25 @@ public class DefenderBehaviour : MonoBehaviour
     private GameObject missile;
     private EnemySpawnManager[] enemySpawnManagers;
     private EnemySpawnManager myLaneEnemySpawnManager;
+
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         enemySpawnManagers=FindObjectsOfType<EnemySpawnManager>();
+        animator=GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-          
+          if(HasEnemiesInSameLane())
+          {
+              animator.SetBool("IsAttacking",true);
+          }
+          else{
+              animator.SetBool("IsAttacking",false);
+          }
     }
     public void shoot()
     {
